@@ -5,6 +5,9 @@ import com.teachmeskills.lesson17.task1.util.Factorial;
 import com.teachmeskills.lesson17.task1.util.Revers;
 import com.teachmeskills.lesson17.task1.service.MyFunctionalInterface;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Runner {
@@ -39,10 +42,14 @@ public class Runner {
                     break;
                 }
                 case 3: {
-                    Calendar cal = Calendar.getInstance();
-                    Date date = new Date();
-                    cal.setTime(date);
-                    System.out.println(ConvertDate.convertDate(cal.get(Calendar.DAY_OF_WEEK)));
+                    Scanner scanner2 = new Scanner(System.in);
+                    System.out.print("Введите дату в формате дд.мм.гггг: ");
+                    String date = scanner2.nextLine();
+                    Calendar calendar = Calendar.getInstance();
+
+                    calendar.set(Integer.parseInt(date.split("\\.")[2]), ConvertDate.convertNum(date.split("\\.")[1]) - 1, ConvertDate.convertNum(date.split("\\.")[0]));
+
+                  System.out.println(ConvertDate.convertDate(calendar.get(Calendar.DAY_OF_WEEK)));
                     break;
                 }
                 default: {

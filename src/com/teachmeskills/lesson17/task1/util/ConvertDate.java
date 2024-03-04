@@ -12,4 +12,10 @@ public class ConvertDate {
         if(n == 7) return "Суббота";
         else return "";
     }
+
+    public static int convertNum(String s){
+        char[] chars = s.toCharArray();
+        if(chars[0] == '0') return Integer.parseInt(String.valueOf(chars[1]));
+        return Integer.parseInt(s);
+    }
 }
